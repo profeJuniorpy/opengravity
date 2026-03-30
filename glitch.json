@@ -1,0 +1,36 @@
+{
+  "name": "opengravity",
+  "description": "Personal AI agent via Telegram",
+  "env": {
+    "TELEGRAM_BOT_TOKEN": {
+      "description": "Your Telegram bot token from @BotFather"
+    },
+    "TELEGRAM_ALLOWED_USER_IDS": {
+      "description": "Telegram user IDs that can use the bot (comma-separated). Leave empty for open access (anyone can use)."
+    },
+    "GROQ_API_KEY": {
+      "description": "Your Groq API key from console.groq.com"
+    },
+    "OPENROUTER_API_KEY": {
+      "description": "OpenRouter API key (optional, fallback LLM)"
+    },
+    "MEMORY_PROVIDER": {
+      "description": "Memory storage: 'sqlite' (local) or 'firestore' (Google Cloud)"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "builds": [
+    {
+      "use": "@glitchdot/node-typescript",
+      "to": "."
+    }
+  ],
+  "data": {
+    "sqlite": "./data/memory.db"
+  }
+}
